@@ -1,5 +1,6 @@
 package com.zoluxiones.pichincha.shared;
 
+import com.zoluxiones.pichincha.currency_exchange.infraestructure.services.CurrencyService;
 import com.zoluxiones.pichincha.security.infraestructure.services.RoleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -16,12 +17,14 @@ public class DatabaseSeedingConfig {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseSeedingConfig.class);
 
     private RoleService roleService;
+    private CurrencyService currencyService;
 
     @EventListener
     public void onApplicationReady(ApplicationReadyEvent event) {
         String name = event.getApplicationContext().getId();
         logger.info("Starting Database Seeding Process for {} at {}", name, new Timestamp(System.currentTimeMillis()));
         roleService.seedRol();
+        currencyService.seedCurrency();
         logger.info("Finished Database Seeding Process for {} at {}", name, new Timestamp(System.currentTimeMillis()));
     }
 }

@@ -1,6 +1,5 @@
 package com.zoluxiones.pichincha.shared.controllers;
 
-import com.zoluxiones.pichincha.shared.exceptions.BadRequestException;
 import com.zoluxiones.pichincha.shared.exceptions.NotFoundException;
 import com.zoluxiones.pichincha.shared.models.BaseErrorResponse;
 import com.zoluxiones.pichincha.shared.models.ErrorListResponse;
@@ -14,14 +13,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.ArrayList;
 
 @RestControllerAdvice
-@ResponseStatus(HttpStatus.BAD_REQUEST)
-public class BadRequestController {
-    @ExceptionHandler(BadRequestException.class)
-    public BaseErrorResponse handleIdNotFound(BadRequestException exception) {
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class NotFoundController {
+    @ExceptionHandler(NotFoundException.class)
+    public BaseErrorResponse handleIdNotFound(NotFoundException exception) {
         return ErrorResponse.builder()
                 .message(exception.getMessage())
-                .status(HttpStatus.BAD_REQUEST.name())
-                .errorCode(HttpStatus.BAD_REQUEST.value())
+                .status(HttpStatus.NOT_FOUND.name())
+                .errorCode(HttpStatus.NOT_FOUND.value())
                 .build();
     }
 
@@ -34,8 +33,8 @@ public class BadRequestController {
 
         return ErrorListResponse.builder()
                 .listErrors(listErrors)
-                .status(HttpStatus.BAD_REQUEST.name())
-                .errorCode(HttpStatus.BAD_REQUEST.value())
+                .status(HttpStatus.NOT_FOUND.name())
+                .errorCode(HttpStatus.NOT_FOUND.value())
                 .build();
     }
 }
