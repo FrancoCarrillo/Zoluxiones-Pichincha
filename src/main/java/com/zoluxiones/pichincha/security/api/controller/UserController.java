@@ -35,7 +35,7 @@ public class UserController {
     @Operation(summary = "Add admin role to user", security = {@SecurityRequirement(name = "bearer-key")})
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add/{user_id}/admin")
-    public ResponseEntity<String> addAdminRol(@PathVariable Long user_id) {
-        return ResponseEntity.ok(securityService.addRoleAdmin(user_id));
+    public ResponseEntity<String> addAdminRol(@PathVariable Long userId) {
+        return ResponseEntity.ok(securityService.addRoleAdmin(userId));
     }
 }

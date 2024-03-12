@@ -4,7 +4,6 @@ import com.zoluxiones.pichincha.security.core.entities.User;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,8 +1,6 @@
 package com.zoluxiones.pichincha.currency_exchange.infraestructure.services;
 
 import com.zoluxiones.pichincha.currency_exchange.api.model.requests.CreateCurrencyExchangeRequest;
-import com.zoluxiones.pichincha.currency_exchange.api.model.responses.CurrencyExchangeResponse;
-import com.zoluxiones.pichincha.currency_exchange.api.model.responses.ExchangeTypeResponse;
 import com.zoluxiones.pichincha.currency_exchange.core.entities.Currency;
 import com.zoluxiones.pichincha.currency_exchange.core.entities.CurrencyExchange;
 import com.zoluxiones.pichincha.currency_exchange.core.entities.ExchangeType;

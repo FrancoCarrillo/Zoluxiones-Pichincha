@@ -1,7 +1,6 @@
 package com.zoluxiones.pichincha.shared.controllers;
 
 import com.zoluxiones.pichincha.shared.exceptions.BadRequestException;
-import com.zoluxiones.pichincha.shared.exceptions.NotFoundException;
 import com.zoluxiones.pichincha.shared.models.BaseErrorResponse;
 import com.zoluxiones.pichincha.shared.models.ErrorListResponse;
 import com.zoluxiones.pichincha.shared.models.ErrorResponse;

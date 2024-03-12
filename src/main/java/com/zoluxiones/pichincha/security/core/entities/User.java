@@ -33,9 +33,8 @@ public class User {
     public Set<String> getRolName() {
         Set<String> rolesName = new HashSet<>();
 
-        roles.forEach(role -> {
-            rolesName.add(role.getName());
-        });
+        roles.forEach(role -> rolesName.add(role.getName()));
+        );
 
         return rolesName;
     }

@@ -56,24 +56,26 @@ public class SecurityService implements ISecurityService {
     @Override
     public String register(RegisterUserRequest registerUserRequest) {
 
+        String rolNotFound = "Rol doesn't exist";
+
         Set<ConstraintViolation<RegisterUserRequest>> violations = validator.validate(registerUserRequest);
 
         if (!violations.isEmpty())
             throw new NotFoundException(violations.stream().map(ConstraintViolation::getMessage)
                     .collect(Collectors.joining(", ")));
 
-        if (userRepository.existsByUsername(registerUserRequest.getUsername())) {
+        if (Boolean.TRUE.equals(userRepository.existsByUsername(registerUserRequest.getUsername()))) {
             throw new NotFoundException("EL username ya esta en uso");
         }
 
-        if (userRepository.existsByEmail(registerUserRequest.getEmail())) {
+        if (Boolean.TRUE.equals(userRepository.existsByEmail(registerUserRequest.getEmail()))) {
             throw new NotFoundException("El email ya esta en uso");
         }
 
         Role rol = rolRepository.findByName("USER");
 
         if (rol == null) {
-            throw new NotFoundException("Rol doesn't exist");
+            throw new NotFoundException(rolNotFound);
         }
 
         User user = User.builder()
@@ -94,7 +96,7 @@ public class SecurityService implements ISecurityService {
             Role adminRol = rolRepository.findByName("ADMIN");
 
             if (adminRol == null) {
-                throw new NotFoundException("Rol doesn't exist");
+                throw new NotFoundException(rolNotFound);
             }
 
             roles.add(adminRol);
@@ -106,8 +108,8 @@ public class SecurityService implements ISecurityService {
     }
 
     @Override
-    public String addRoleAdmin(Long user_id) {
-        User user = userRepository.findById(user_id).orElseThrow(() -> new NotFoundException("User not found"));
+    public String addRoleAdmin(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new NotFoundException("User not found"));
 
         Role rol = rolRepository.findByName("ADMIN");
 

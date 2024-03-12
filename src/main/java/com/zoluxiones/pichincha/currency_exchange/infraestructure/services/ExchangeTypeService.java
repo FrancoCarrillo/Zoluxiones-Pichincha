@@ -31,7 +31,7 @@ public class ExchangeTypeService implements IExchangeTypeService {
                 .orElseThrow(() -> new NotFoundException("Origin currency not found"));
 
         Currency destinationCurrency = currencyRepository.findById(request.getDestinationCurrencyId())
-                .orElseThrow(() -> new NotFoundException("Origin currency not found"));
+                .orElseThrow(() -> new NotFoundException("Destination currency not found"));
 
         ExchangeType exchangeType = ExchangeType.builder()
                 .exchangeRate(request.getExchangeRate())
@@ -56,7 +56,7 @@ public class ExchangeTypeService implements IExchangeTypeService {
                 .orElseThrow(() -> new NotFoundException("Origin currency not found"));
 
         Currency destinationCurrency = currencyRepository.findById(request.getDestinationCurrencyId())
-                .orElseThrow(() -> new NotFoundException("Origin currency not found"));
+                .orElseThrow(() -> new NotFoundException("Destination currency not found"));
 
         exchangeType.setDestinationCurrency(destinationCurrency);
         exchangeType.setOriginCurrency(originCurrency);

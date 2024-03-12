@@ -1,7 +1,6 @@
 package com.zoluxiones.pichincha.currency_exchange.api.controller;
 
 import com.zoluxiones.pichincha.currency_exchange.api.model.requests.CreateCurrencyExchangeRequest;
-import com.zoluxiones.pichincha.currency_exchange.api.model.responses.CurrencyExchangeResponse;
 import com.zoluxiones.pichincha.currency_exchange.infraestructure.interfaces.ICurrencyExchangeService;
 import com.zoluxiones.pichincha.security.api.model.responses.MessageResponse;
 import io.swagger.v3.oas.annotations.Operation;
