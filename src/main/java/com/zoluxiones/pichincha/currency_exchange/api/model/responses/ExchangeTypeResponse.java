@@ -1,13 +1,11 @@
 package com.zoluxiones.pichincha.currency_exchange.api.model.responses;
 
 import com.zoluxiones.pichincha.currency_exchange.core.entities.Currency;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 @Setter
 public class ExchangeTypeResponse {

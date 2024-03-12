@@ -2,7 +2,7 @@ package com.zoluxiones.pichincha.currency_exchange.api.controller;
 
 import com.zoluxiones.pichincha.currency_exchange.api.model.requests.UpdateCreateExchangeTypeRequest;
 import com.zoluxiones.pichincha.currency_exchange.core.entities.ExchangeType;
-import com.zoluxiones.pichincha.currency_exchange.infraestructure.services.ExchangeTypeService;
+import com.zoluxiones.pichincha.currency_exchange.infraestructure.interfaces.IExchangeTypeService;
 import com.zoluxiones.pichincha.security.api.model.responses.MessageResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Exchange Type")
 public class ExchangeTypeController {
 
-    private final ExchangeTypeService exchangeTypeService;
+    private final IExchangeTypeService exchangeTypeService;
 
 
-    @Operation(summary = "Register exchange type")
+    @Operation(summary = "Get exchange type")
     @GetMapping("/{id}")
     public ResponseEntity<ExchangeType> getById(@PathVariable Long id) {
         return ResponseEntity.ok(exchangeTypeService.getExchangeTypeById(id));

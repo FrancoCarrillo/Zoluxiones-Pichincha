@@ -4,13 +4,14 @@ import com.zoluxiones.pichincha.security.core.entities.User;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity(name = "currency_exchange")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @With
 public class CurrencyExchange {
 
@@ -27,5 +28,5 @@ public class CurrencyExchange {
     @ManyToOne
     private ExchangeType exchangeType;
 
-    private Date createdDate;
+    private LocalDateTime createdDate;
 }
